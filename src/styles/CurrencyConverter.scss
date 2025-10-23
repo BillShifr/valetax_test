@@ -1,0 +1,201 @@
+@use "variables" as *;
+
+.currency-converter {
+  min-height: 100vh;
+  background-color: $gray-100;
+  padding: $spacing-6 $spacing-4;
+
+  @media (min-width: $desktop) {
+    padding: $spacing-12 $spacing-6;
+  }
+
+  &__header {
+    text-align: center;
+    margin-bottom: $spacing-6;
+
+    @media (min-width: $desktop) {
+      margin-bottom: $spacing-8;
+    }
+  }
+
+  &__title {
+    font-size: $font-size-3xl;
+    font-weight: $font-weight-bold;
+    color: $gray-800;
+    margin-bottom: $spacing-2;
+
+    @media (min-width: $desktop) {
+      font-size: $font-size-4xl;
+    }
+  }
+
+  &__subtitle {
+    font-size: $font-size-lg;
+    color: $gray-600;
+    font-weight: $font-weight-normal;
+  }
+
+  &__status {
+    margin-bottom: $spacing-6;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  &__error {
+    margin-bottom: $spacing-6;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  &__content {
+    max-width: 1200px;
+    margin: 0 auto;
+
+    @media (min-width: $desktop) {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: $spacing-8;
+      align-items: start;
+    }
+  }
+
+  &__form {
+    background-color: $white;
+    border-radius: $border-radius-xl;
+    box-shadow: $shadow-md;
+    padding: $spacing-6;
+    margin-bottom: $spacing-6;
+
+    @media (min-width: $desktop) {
+      padding: $spacing-8;
+      margin-bottom: 0;
+    }
+  }
+
+  &__input-group {
+    margin-bottom: $spacing-6;
+  }
+
+  &__label {
+    display: block;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-medium;
+    color: $gray-700;
+    margin-bottom: $spacing-2;
+  }
+
+  &__input {
+    width: 100%;
+    padding: $spacing-4;
+    font-size: $font-size-lg;
+    font-weight: $font-weight-medium;
+    color: $gray-800;
+    background-color: $white;
+    border: 1px solid $gray-300;
+    border-radius: $border-radius-lg;
+    transition: border-color $transition-fast, box-shadow $transition-fast;
+
+    &:focus {
+      outline: none;
+      border-color: $primary-color;
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    }
+
+    &:disabled {
+      background-color: $gray-100;
+      color: $gray-400;
+      cursor: not-allowed;
+    }
+
+    &::placeholder {
+      color: $gray-400;
+    }
+  }
+
+  &__currencies {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-4;
+    position: relative;
+
+    @media (min-width: $desktop) {
+      gap: $spacing-6;
+    }
+  }
+
+  &__swap {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: $primary-color;
+    color: $white;
+    border: none;
+    border-radius: 50%;
+    font-size: $font-size-lg;
+    cursor: pointer;
+    transition: background-color $transition-fast, transform $transition-fast;
+    box-shadow: $shadow-md;
+
+    &:hover:not(:disabled) {
+      background-color: $primary-dark;
+      transform: translate(-50%, -50%) scale(1.05);
+    }
+
+    &:disabled {
+      background-color: $gray-400;
+      cursor: not-allowed;
+      transform: translate(-50%, -50%);
+    }
+
+    &:focus-visible {
+      outline: 2px solid $white;
+      outline-offset: 2px;
+    }
+
+    @media (max-width: $mobile) {
+      width: 36px;
+      height: 36px;
+      font-size: $font-size-base;
+    }
+  }
+
+  &__result {
+    background-color: $white;
+    border-radius: $border-radius-xl;
+    box-shadow: $shadow-md;
+    padding: $spacing-6;
+
+    @media (min-width: $desktop) {
+      padding: $spacing-8;
+    }
+  }
+}
+
+.error-message {
+  display: flex;
+  align-items: center;
+  gap: $spacing-3;
+  padding: $spacing-4;
+  background-color: $error-bg;
+  border: 1px solid $error-color;
+  border-radius: $border-radius-lg;
+  color: $error-color;
+
+  &__icon {
+    font-size: $font-size-lg;
+  }
+
+  &__text {
+    font-size: $font-size-sm;
+    font-weight: $font-weight-medium;
+  }
+}

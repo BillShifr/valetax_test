@@ -1,0 +1,72 @@
+@use "variables" as *;
+
+.conversion-result {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-4;
+
+  &__title {
+    font-size: $font-size-lg;
+    font-weight: $font-weight-semibold;
+    color: $gray-800;
+    margin-bottom: $spacing-2;
+  }
+
+  &__amount {
+    font-size: $font-size-4xl;
+    font-weight: $font-weight-bold;
+    color: $gray-800;
+    line-height: 1.2;
+    margin-bottom: $spacing-2;
+
+    @media (min-width: $desktop) {
+      font-size: 3rem;
+    }
+  }
+
+  &__subtitle {
+    font-size: $font-size-base;
+    color: $gray-600;
+    margin-bottom: $spacing-4;
+  }
+
+  &__rates {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-3;
+    padding-top: $spacing-4;
+    border-top: 1px solid $gray-200;
+  }
+
+  &__rate {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: $spacing-4;
+  }
+
+  &__rate-label {
+    font-size: $font-size-sm;
+    color: $gray-600;
+    font-weight: $font-weight-medium;
+  }
+
+  &__rate-value {
+    font-size: $font-size-sm;
+    color: $gray-700;
+    font-weight: $font-weight-normal;
+    text-align: right;
+    word-break: break-all;
+  }
+
+  &__disclaimer {
+    font-size: $font-size-xs;
+    color: $gray-400;
+    text-align: center;
+    line-height: 1.4;
+    margin-top: $spacing-4;
+    padding: $spacing-3;
+    background-color: $gray-50;
+    border-radius: $border-radius-md;
+  }
+}
